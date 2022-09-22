@@ -7,6 +7,10 @@ output: powerpoint_presentation
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+local <- stringr::str_extract(getwd(),"^.*ApresentacaoShiny/")
+local_dados <- str_c(local,"banco_de_dados/queries_leite_carne/dados_transformados/")
+
+abrev <- read_delim(str_c(local_dados,"sumario_abreviacoes.csv"),delim = ",")
 ```
 
 ## Apresentação Shiny
@@ -14,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 Meu nome é Antonio oss boll. Sou aluno de graduação da UFRGS em estatística e irei apresentar a vocês um pouco sobre Shiny Apps no RStudio.
 
 ```{r}
-knitr::include_graphics('D:/Antonio/Documentos/ArquivosUFRGS/5semestra/shiny/shinyimg.png')
+knitr::include_graphics(stringr::str_c(local,"shinyimg.png"))
 ```
 
 
