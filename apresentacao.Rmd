@@ -5,38 +5,124 @@ date: "2022-09-22"
 output: powerpoint_presentation
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-local <- stringr::str_extract(getwd(),"^.*ApresentacaoShiny/")
-local_dados <- str_c(local,"banco_de_dados/queries_leite_carne/dados_transformados/")
+# Apresentação Shiny
 
-abrev <- read_delim(str_c(local_dados,"sumario_abreviacoes.csv"),delim = ",")
+Meu nome é Antonio Oss Boll. 
+
+Sou aluno de graduação da UFRGS em estatística e irei apresentar a vocês um pouco sobre Shiny Apps no RStudio.
+
+![](https://miro.medium.com/max/521/1*bl7hSugBuCihsFz9CVYieA.png)
+
+
+# Introdução à linguagem R
+
+O mecanismo de programação R é uma linguagem aberta e utilizada por muitos estatísticos. Nela, podemos realizar problemas simples, como a média de uma coluna de variáveis, e problemas mais complexos, como a criação de um app em shiny.
+Irei utilizar esta linguagem como base nesta apresentação.
+
+Por exemplo, abaixo é realizada a média das cilindradas do banco mtcars, um problema simples resolvido pelo R. 
+```{r, echo = TRUE}
+mean(mtcars$cyl)
 ```
 
-## Apresentação Shiny
 
-Meu nome é Antonio oss boll. Sou aluno de graduação da UFRGS em estatística e irei apresentar a vocês um pouco sobre Shiny Apps no RStudio.
+# Apresentação Shiny
 
-```{r}
-knitr::include_graphics(stringr::str_c(local,"shinyimg.png"))
-```
+Através da linguagem R, é possível montar uma interface gráfica. Essa interface se chama Shiny, e nela, são apresentados resultados reativos que atualizam de acordo com a sua demanda. Ela ajuda a comunicar os dados de forma mais visual para que os não estatísticos possam compreender cada item.
 
 
-## Slide with Bullets
+# Porque devo utilizar o Shiny?
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+- Auxilia na visualização do problema;
+- Dados interativos;
+- Ilustra a programação de forma prática.
 
-## Slide with R Output
+# Reatividade
 
-```{r cars, echo = TRUE}
-summary(cars)
-```
+No aplicativo Shiny, podemos atualizar variáveis de acordo com o que buscamos visualizar. Por exemplo, podemos determinar um limite de idade. Portanto, no aplicativo, será mostrado apenas o output filtrado nessas condições. 
 
-## Slide with Plot
+# Divisão shiny
 
-```{r pressure}
-plot(pressure)
-```
+Nele, são divididas as funções em dois grandes grupos, o UI e o server.
+
+- A UI, denominada a partir de user interface, é a face gráfica do programa, o que vemos por externo.
+
+- O server é onde se programa o que é retornado, criando códigos de gráficos, tabelas, entre outros, que são mostrados na interface.
+
+Para que o programa possa rodar, o aplicativo deve chamar ambas funções, que se complementam e possibilitam um aplicativo ser formado.
+
+# UI
+
+Como explicado antes, a UI é a parte gráfica do programa. Nela, podemos observar visualmente o programa, assim como trocar os inputs para gerar diferentes variações de sua saída. Por isso, a UI possui diversos exemplos de inputs e funções.
+
+# Mecanismos na UI
+
+Podemos subdividir a UI em diferentes partes. Uma delas é a header, que cria um espaço de cabeçalho, onde posso colocar nomes, mensagens, entre outros.
+
+# Mecanismos na UI
+
+Outra parte é a sidebar. Ela cria um espaço, na lateral esquerda do programa, e funciona como uma divisão de páginas, como um navegador de internet com diversas abas abertas.
+
+# Mecanismos na UI
+
+O mais importante dos mecanismos é o body. Nele é onde preparamos toda a interface para receber as funções do server através dos inputs. 
+
+# UI Inputs
+
+Alguns inputs são:
+
+- textInput (Adiciona uma caixa de texto); 
+- DateInput (Adiciona um input de data);
+- SliderInput (Adiciona uma escolha de número);
+- RadioButtons (Adiciona uma escolha de botões);
+- CheckBox (Adiciona uma escolha de caixas).
+
+Entre diversos outros.
+
+# Server
+
+No server é onde a chamada das funções entra. Nele, são realizados os filtros propostos pela UI, além da manipulação dos dados. Após isso, envio para a UI o que foi requerido, como um gráfico ou uma tabela. 
+
+# Utilitários
+
+Pode-se utilizar diversos outros pacotes para que o aplicativo seja realizado. O mais utilizado para a visualização de dados é o GGPlot, que gera gráficos. Além dele, são utilizados diversos outros, como o Dplyr, que mexe com os bancos de dados internamente no aplicativo.
+
+# Tidyverse
+
+Com o pacote tidyverse, são chamados outras diversas libraries no R, como o dplyr, comentado anteriormente. Nele, podemos realizar a filtragem do banco proposta na UI mais facilmente, além de alterações para que o banco encaixe na forma desejada pela função.
+
+# GGPlot
+
+O GGPlot também é contido no tidyverse, e ele é o pacote mais importante para a visualização dos dados. Nele, podemos chamar diversos gráficos que entram na interface e ilustram o que precisamos.
+
+# Plotly
+
+No plotly, podemos utilizar o GGPlot de uma forma mais prática, observando os resultados ao colocar o mouse em cima da observação.
+
+# Dicas de aplicativos
+
+A minha maior dica para a criação dos aplicativos é: Recicle os códigos. Vamos fazer um aplicativo nesta aula. Portanto, peguem este aplicativo e sempre criem novos a partir dele. Ctrl C + Ctrl V é uma ferramenta poderosa que realmente ajuda nestes casos
+
+# Trabalhos NAU
+
+Este conhecimento em shiny foi criado e evoluído no NAU do IME da UFRGS. Isso porque, ao apresentarmos os dados, criamos aplicativos em Shiny para que os mesmos fossem mais fáceis de atualizar e visualizar. Estes aplicativos têm relação com a avaliação do nosso instituto, podendo trazer resultados mais práticos aos gestores e melhorando o nosso meio.
+
+# Bibliografias
+
+https://www.paulamoraga.com/book-geospatial/sec-shiny.html
+
+https://shiny.rstudio.com/articles/basics.html
+
+https://mastering-shiny.org/basic-app.html
+
+https://ourcodingclub.github.io/tutorials/shiny/
+
+https://debruine.github.io/shinyintro/inputs.html
+
+http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
+
+# GITHUB
+
+Este material está em meu github, https://github.com/AntonioBoll/ApresentacaoShiny. 
+
+
 
