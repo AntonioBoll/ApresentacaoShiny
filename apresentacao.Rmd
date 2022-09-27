@@ -96,7 +96,7 @@ O GGPlot também é contido no tidyverse, e ele é o pacote mais importante para
 
 # Plotly
 
-No plotly, podemos utilizar o GGPlot de uma forma mais prática, observando os resultados ao colocar o mouse em cima da observação.
+Com o plotly, podemos utilizar o GGPlot de uma forma mais prática, observando os resultados ao colocar o mouse em cima da observação.
 
 # Dicas de aplicativos
 
