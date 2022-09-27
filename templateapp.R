@@ -6,7 +6,7 @@ library(shinydashboard)
 
 ui <- dashboardPage(
   skin = "black",
-  header <- dashboardHeader(title= "Title"
+  header <- dashboardHeader(title= "Curso Shiny"
   ),
   
   sidebar <- dashboardSidebar(
